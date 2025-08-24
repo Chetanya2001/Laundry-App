@@ -1,5 +1,5 @@
 import express, { Express, Request, Response, NextFunction } from "express";
-import connectDB from "./config/db";
+import { connectDB } from "./config/db";
 import winston from "winston";
 
 const app: Express = express();
@@ -17,6 +17,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   logger.info(`${req.method} ${req.url}`);
   next();
 });
+
 
 // Error handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
