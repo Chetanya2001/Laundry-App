@@ -1,5 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import { connectDB } from "./config/db";
+import routes from "./routes";
 import winston from "winston";
 
 const app: Express = express();
@@ -18,6 +19,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
+app.use("/api", routes);
 
 // Error handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

@@ -4,7 +4,8 @@ import "dotenv/config";
 export const AppDataSource = new DataSource({
   type: "postgres",
   url: process.env.DATABASE_URL,
-  synchronize: false, // Set to false in production; use migrations
+  synchronize: false, // Set to false in production; use migration
+  entities: ["models/entities/*.ts"],
   logging: false,
   migrations: ["migrations/*.ts"],
 });
